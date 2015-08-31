@@ -1,0 +1,6 @@
+# Lab-Stuff.repo
+[lab-stuff]
+name=Lab-Stuff
+baseurl=http://repo/repo/os/Linux/Software/
+gpgcheck=0
+enabled=1

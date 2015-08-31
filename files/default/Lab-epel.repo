@@ -1,0 +1,7 @@
+# Lab.repo
+[lab-epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=http://repo/repo/os/Linux/Fedora/epel/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
