@@ -7,7 +7,7 @@
 #
 
 include_recipe [
-  #'basic::access',
+  'basic::access',
   'basic::repos',
-  #'basic::misc'
+  'basic::misc'
 ]
