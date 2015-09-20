@@ -29,3 +29,9 @@ cookbook_file '/etc/yum.repos.d/Lab-Stuff.repo' do
   mode '0444'
   action :create
 end
+
+node['repo']['repos'].each do |repo|
+  file "/etc/yum.repos.d/#{repo}" do
+    action :delete
+  end
+end
