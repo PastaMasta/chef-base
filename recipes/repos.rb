@@ -1,6 +1,6 @@
 #
 # Author:: PastaMasta (<pasta.masta2902@gmail.com>)
-# Cookbook Name:: basic
+# Cookbook Name:: base
 # Recipe:: repos
 #
 # Copyright 2015, PastaMasta

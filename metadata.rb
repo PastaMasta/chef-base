@@ -1,4 +1,4 @@
-name             'basic'
+name             'base'
 maintainer       'PastaMasta'
 maintainer_email 'pasta.masta2902@gmail.com'
 license          'All rights reserved'
