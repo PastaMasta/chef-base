@@ -11,4 +11,7 @@ default['repo']['repos'] = [
   'CentOS-fasttrack.repo',
   'CentOS-Vault.repo',
   'CentOS-Debuginfo.repo',
-  'CentOS-Media.repo']
+  'epel.repo',
+  'epel-testing.repo',
+  'CentOS-Media.repo'
+]
