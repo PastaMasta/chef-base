@@ -6,33 +6,25 @@
 # Copyright 2015, PastaMasta
 #
 
-cookbook_file '/etc/yum.repos.d/Lab-Base.repo' do
-  source 'Lab-Base.repo'
-  owner 'root'
-  group 'root'
-  mode '0444'
-  action :create
-end
-
-cookbook_file '/etc/yum.repos.d/Lab-epel.repo' do
-  source 'Lab-epel.repo'
-  owner 'root'
-  group 'root'
-  mode '0444'
-  action :create
-end
-
-cookbook_file '/etc/yum.repos.d/Lab-Stuff.repo' do
-  source 'Lab-Stuff.repo'
-  owner 'root'
-  group 'root'
-  mode '0444'
-  action :create
-end
-
+# Setup repos
 node['repo']['repos'].each do |repo|
-  file "/etc/yum.repos.d/#{repo}" do
-    action :delete
+  cookbook_file "/etc/yum.repos.d/#{repo}" do
+    source repo
+    owner 'root'
+    group 'root'
+    mode '0444'
+    action :create
   end
 end
 
+# Install epel-release
+package 'epel-release' do
+  action :install
+end
+
+# Clean up other repos
+node['repo']['repo_cleanup'].each do |cleanup|
+  file "/etc/yum.repos.d/#{cleanup}" do
+    action :delete
+  end
+end

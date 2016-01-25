@@ -14,11 +14,17 @@ default['access']['ssh_keys'] = [
 ]
 
 default['repo']['repos'] = [
+ 'Lab-Base.repo',
+ 'Lab-epel.repo',
+ 'Lab-Stuff.repo'
+]
+
+default['repo']['repo_cleanup'] = [
   'CentOS-Base.repo',
   'CentOS-fasttrack.repo',
   'CentOS-Vault.repo',
   'CentOS-Debuginfo.repo',
+  'CentOS-Media.repo',
   'epel.repo',
-  'epel-testing.repo',
-  'CentOS-Media.repo'
+  'epel-testing.repo'
 ]
