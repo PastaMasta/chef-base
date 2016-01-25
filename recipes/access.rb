@@ -7,17 +7,9 @@
 #
 
 # Add my generic SSH access key.
-
-directory '/root/.ssh' do
-  owner 'root'
-  group 'root'
-  mode 0700
-  action :create
-end
-
-cookbook_file '/root/.ssh/authorized_keys' do
-  source 'authorized_keys'
-  owner 'root'
-  group 'root'
-  mode 0700
+node['access']['ssh_keys'].each do |key|
+  append_if_no_line "Add ssh keys" do
+    path "/root/.ssh/authorized_keys"
+    line key
+  end
 end

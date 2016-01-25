@@ -7,6 +7,7 @@
 #
 
 include_recipe [
+  'line',
   'chef-base::access',
   'chef-base::repos',
   'chef-base::misc'
