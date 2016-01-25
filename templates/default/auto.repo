@@ -1,0 +1,3 @@
+<%- node['repo']['automount'].each do |line| %>
+<%= line %>
+<%- end %>
