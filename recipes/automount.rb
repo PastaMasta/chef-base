@@ -10,7 +10,7 @@ package 'autofs' do
   action :install
 end
 
-service autofs do
+service 'autofs' do
   action [ :enable, :start ]
 end
 
