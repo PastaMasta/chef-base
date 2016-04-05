@@ -17,6 +17,11 @@ node['repo']['repos'].each do |repo|
   end
 end
 
+# Install epel-release
+package 'epel-release' do
+  action :install
+end
+
 # Clean up other repos
 node['repo']['repo_cleanup'].each do |cleanup|
   file "/etc/yum.repos.d/#{cleanup}" do
@@ -24,14 +29,3 @@ node['repo']['repo_cleanup'].each do |cleanup|
   end
 end
 
-# Install epel-release
-package 'epel-release' do
-  action :install
-end
-
-# tidy up the epel repos
-['epel.repo','epel-testing.repo'].each do |repo|
-  file "/etc/yum.repos.d/#{repo}" do
-    action :delete
-  end
-end

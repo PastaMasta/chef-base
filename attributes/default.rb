@@ -14,8 +14,7 @@ default['access']['ssh_keys'] = [
 
 # Repos
 default['repo']['repos'] = [
- 'Lab-Base.repo',
- 'Lab-epel.repo',
+ 'Lab-CentOS-Base.repo',
  'Lab-Stuff.repo'
 ]
 
@@ -25,7 +24,6 @@ default['repo']['repo_cleanup'] = [
   'CentOS-Vault.repo',
   'CentOS-Debuginfo.repo',
   'CentOS-Media.repo',
-  'epel.repo',
   'epel-testing.repo'
 ]
 
