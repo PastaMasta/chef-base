@@ -9,8 +9,12 @@ A base linux cookbook for my home lab.
 ## automount.rb
 * Sets up an automount of /repo to my repo / NAS server setup with chef-master
 
+## misc.rb
+* Enables NTP
+
 ## repos.rb
 * Sets up my local yum mirrors
+
 
 License and Authors
 -------------------
