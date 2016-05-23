@@ -9,6 +9,7 @@
 include_recipe [
   'line',
   'chef-base::access',
-  'chef-base::repos',
-  'chef-base::automount'
+  'chef-base::automount',
+  'chef-base::misc',
+  'chef-base::repos'
 ]
