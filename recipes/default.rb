@@ -6,10 +6,14 @@
 # Copyright 2015, PastaMasta
 #
 
-include_recipe [
+recipes = [
   'line',
   'chef-base::access',
   'chef-base::automount',
   'chef-base::misc',
   'chef-base::repos'
 ]
+
+recipes = recipes - ['chef-base::automount'] if node['recipes'].include?("chef-master")
+
+include_recipe(recipes)
