@@ -8,12 +8,9 @@
 
 recipes = [
   'line',
-  'chef-base::access',
-  'chef-base::automount',
-  'chef-base::misc',
-  'chef-base::repos'
+  'chef-base::repos',
+  'chef-base::packages',
+  'chef-base::misc'
 ]
-
-recipes = recipes - ['chef-base::automount'] if node['recipes'].include?("chef-master")
 
 include_recipe(recipes)
