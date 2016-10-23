@@ -6,6 +6,11 @@
 # Copyright 2015, PastaMasta
 #
 
+# Find out who our master server is!
+masters = search(:node, 'recipes:"chef-master"')
+raise if masters.count > 1
+node.default['base']['master'] = masters.first.name
+
 recipes = [
   'line',
   'chef-base::packages',
