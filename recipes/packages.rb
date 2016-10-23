@@ -11,9 +11,12 @@ case node['platform']
   when "centos"
     packages = [
       "epel-release",
+      "nfs-utils",
+      "autofs",
       "git",
       "tmux",
-      "htop"
+      "htop",
+      "bash-completion"
     ]
 end
 
