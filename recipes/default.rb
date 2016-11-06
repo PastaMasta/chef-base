@@ -13,6 +13,7 @@ node.default['base']['master'] = masters.first.name
 
 recipes = [
   'line',
+  'chef-base::repos',
   'chef-base::packages',
   'chef-base::user',
   'chef-base::misc'
