@@ -1,4 +1,4 @@
-[base]
+[local-base]
 name=Local CentOS-$releasever - Base
 baseurl=http://<%="#{node['base']['master']}"%>/mrepo/centos$releasever-$basearch/RPMS.os/
 gpgcheck=1
@@ -6,33 +6,33 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 enabled=1
 
 #released updates 
-[updates]
+[local-updates]
 name=Local CentOS-$releasever - Updates
-baseurl=http://<%="#{node['base']['master']}"%>/centos$releasever-$basearch/RPMS.updates/
+baseurl=http://<%="#{node['base']['master']}"%>/mrepo/centos$releasever-$basearch/RPMS.updates/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 enabled=1
 
 #additional packages that may be useful
-[extras]
+[local-extras]
 name=Local CentOS-$releasever - Extras
-baseurl=http://<%="#{node['base']['master']}"%>/centos$releasever-$basearch/RPMS.extras/
+baseurl=http://<%="#{node['base']['master']}"%>/mrepo/centos$releasever-$basearch/RPMS.extras/
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 enabled=0
 
 #additional packages that extend functionality of existing packages
-[centosplus]
+[local-centosplus]
 name=CentOS-$releasever - Plus
-baseurl=http://<%="#{node['base']['master']}"%>/centos$releasever-$basearch/RPMS.centosplus/
+baseurl=http://<%="#{node['base']['master']}"%>/mrepo/centos$releasever-$basearch/RPMS.centosplus/
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 #contrib - packages by Centos Users
-[contrib]
+[local-contrib]
 name=Local CentOS-$releasever - Contrib
-baseurl=http://<%="#{node['base']['master']}"%>/centos$releasever-$basearch/RPMS.contrib/
+baseurl=http://<%="#{node['base']['master']}"%>/mrepo/centos$releasever-$basearch/RPMS.contrib/
 gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
