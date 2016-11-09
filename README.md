@@ -1,21 +1,33 @@
-Base Cookbook
+chef-base cookbook
 ======================
 
-A base linux cookbook for my home lab.
+A standard base cookbook assigned to all nodes.
 
-## access.rb
-* Adds my public key to /root/.ssh/authorized_keys
+## chef-base::repos
+- Sets up local repo access; updates costings on remote repos
 
-## automount.rb
-* Sets up an automount of /repo to my repo / NAS server setup with chef-master
+## chef-base::packages
+- Installs a set of common packages
+    * `epel-release`
+    * `nfs-utils`
+    * `autofs`
+    * `git`
+    * `tmux`
+    * `htop`
+    * `bash-completion`
 
-## misc.rb
-* Enables NTP
 
-## repos.rb
-* Sets up my local yum mirrors
+## chef-base::user
+- Sets up automount and creates a local account
 
+## chef-base::misc
+- Sets up NTP
+
+Dependencies
+-------------------
+- line
 
 License and Authors
 -------------------
-Authors: PastaMasta
+Authors: PastaMasta  
+See [LICENSE](LICENSE.md) for license rights and limitations (GNU GPLv3).

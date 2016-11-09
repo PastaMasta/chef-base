@@ -7,6 +7,5 @@
 #
 
 default['base']['users'] = {
-  'sbt' => { 'uid'=>1000,'home'=>'/home/sbt' },
-  'sbt2' => { 'uid'=>1001,'home'=>'/home/sbt2' }
+  'sbt' => { 'uid'=>1000,'home'=>'/home/sbt' }
 }
