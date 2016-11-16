@@ -10,6 +10,7 @@
 case node['platform']
   when "centos"
     packages = [
+      "vim",
       "epel-release",
       "nfs-utils",
       "autofs",
