@@ -8,8 +8,11 @@
 
 # Find out who our master server is!
 masters = search(:node, 'recipes:"chef-master"')
-raise if masters.count > 1
-node.default['base']['master'] = masters.first.name
+if masters.empty? || masters.nil?
+  node.default['base']['master'] = "masterless"
+else
+  node.default['base']['master'] = masters.first.name 
+end
 
 recipes = [
   'line',

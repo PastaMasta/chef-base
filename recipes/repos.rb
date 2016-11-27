@@ -20,6 +20,6 @@ case node['platform']
     template '/etc/yum.repos.d/Local-CentOS-Base.repo' do
       source 'repos/Local-CentOS-Base.repo.erb'
       action :create
-    end
+    end unless node['base']['master'] == 'masterless'
 
 end
