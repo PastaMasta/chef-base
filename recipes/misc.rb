@@ -8,11 +8,15 @@
 
 # Make sure NTP is running
 case node['platform']
-  when "centos"
+when "centos"
+  case node['platform_verion'].to_i
+  when 6
     service 'ntpd' do
       action ['enable','start']
     end
+  end
 end
+
 # Clone down my dotfies
 git '/root/backpack' do
   action :sync
