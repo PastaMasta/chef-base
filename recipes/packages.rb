@@ -7,18 +7,20 @@
 #
 
 # Select relevent packages
-case node['platform']
-  when "centos"
-    packages = [
-      "vim",
-      "epel-release",
-      "nfs-utils",
-      "autofs",
-      "git",
-      "tmux",
-      "htop",
-      "bash-completion"
-    ]
+case node['platform'] + node['platform_version']
+when /centos [6-7]/
+
+  packages = [
+    "vim",
+    "epel-release",
+    "nfs-utils",
+    "autofs",
+    "git",
+    "tmux",
+    "htop",
+    "bash-completion"
+  ]
+
 end
 
 packages.each do |package|

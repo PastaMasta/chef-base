@@ -6,14 +6,11 @@
 # Copyright 2016, PastaMasta
 #
 
-# Make sure NTP is running
-case node['platform']
-when "centos"
-  case node['platform_verion'].to_i
-  when 6
-    service 'ntpd' do
-      action ['enable','start']
-    end
+# Make sure we have some clocksync
+case node['platform'] + node['platform_version']
+when /centos 6/
+  service 'ntpd' do
+    action ['enable','start']
   end
 end
 
