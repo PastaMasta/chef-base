@@ -7,7 +7,7 @@
 #
 
 # Setup repos
-case node['platform'] + node['platform_version']
+case "#{node['platform']} #{node['platform_version']}"
 when /centos [6-7]/
 
   # Replace default repos with high cost ones

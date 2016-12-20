@@ -7,7 +7,7 @@
 #
 
 # Select relevent packages
-case node['platform'] + node['platform_version']
+case "#{node['platform']} #{node['platform_version']}"
 when /centos [6-7]/
 
   packages = [

@@ -7,7 +7,7 @@
 #
 
 # Make sure we have some clocksync
-case node['platform'] + node['platform_version']
+case "#{node['platform']} #{node['platform_version']}"
 when /centos 6/
   service 'ntpd' do
     action ['enable','start']
