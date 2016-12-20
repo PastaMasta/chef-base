@@ -15,7 +15,6 @@ else
 end
 
 recipes = [
-  'line',
   'chef-base::repos',
   'chef-base::packages',
   'chef-base::user',
