@@ -7,20 +7,22 @@
 #
 
 # Setup automount
-service 'autofs' do
-  action [ :enable, :start ]
-end
+unless node['base']['master'] == "masterless"
+  service 'autofs' do
+    action [ :enable, :start ]
+  end
 
-replace_or_add 'auto.master' do
-  path '/etc/auto.master'
-  pattern '/home /etc/auto.home'
-  line '/home /etc/auto.home'
-  notifies :restart, 'service[autofs]', :delayed
-end
+  replace_or_add 'auto.master' do
+    path '/etc/auto.master'
+    pattern '/home /etc/auto.home'
+    line '/home /etc/auto.home'
+    notifies :restart, 'service[autofs]', :delayed
+  end
 
-template '/etc/auto.home' do
-  source 'auto.home.erb'
-  notifies :restart, 'service[autofs]', :delayed
+  template '/etc/auto.home' do
+    source 'auto.home.erb'
+    notifies :restart, 'service[autofs]', :delayed
+  end
 end
 
 # Add users
