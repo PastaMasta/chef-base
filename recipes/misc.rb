@@ -14,6 +14,14 @@ when /centos 6/
   end
 end
 
+# No IPv6
+case "#{node['platform']} #{node['platform_version']}"
+when /centos [6-7]/
+  template '/etc/sysctl.d/disable_ipv6.conf' do
+    source 'disable_ipv6.conf'
+  end
+end
+
 # Clone down my dotfies
 git '/root/backpack' do
   action :sync
