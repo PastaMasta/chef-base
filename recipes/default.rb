@@ -5,20 +5,17 @@
 #
 # Copyright 2015, PastaMasta
 #
+#
 
 # Find out who our master server is!
 masters = search(:node, 'recipes:"chef-master"') rescue nil
-if masters.nil? || masters.empty?
-  node.default['base']['master'] = "masterless"
-else
-  node.default['base']['master'] = masters.first.name 
-end
+node.default['master'] = masters.first.name unless masters.nil? || masters.empty?
 
 recipes = [
-  'chef-base::repos',
-  'chef-base::packages',
-  'chef-base::user',
-  'chef-base::misc'
+  #cookbook_name + '::repos',
+  cookbook_name + '::data-repo'#,
+  #cookbook_name + '::users',
+  #cookbook_name + '::misc'
 ]
 
 include_recipe(recipes)
