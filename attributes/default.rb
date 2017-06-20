@@ -18,5 +18,5 @@ default['data']['layout'] = [
 
 
 default['base']['users'] = {
-  'sbt' => { 'uid'=>1000,'home'=>'/home/sbt' }
+  'sbt' => { 'uid'=>1000,'home'=>'/data/users/sbt' }
 }

@@ -3,7 +3,7 @@
 # Cookbook Name:: chef-base
 # Recipe:: misc
 #
-# Copyright 2016, PastaMasta
+# Copyright 2017, PastaMasta
 #
 
 # Make sure we have some clocksync
@@ -14,15 +14,8 @@ when /centos 6/
   end
 end
 
-# No IPv6
-case "#{node['platform']} #{node['platform_version']}"
-when /centos [6-7]/
-  template '/etc/sysctl.d/disable_ipv6.conf' do
-    source 'disable_ipv6.conf'
-  end
-end
-
 # Clone down my dotfies
+package 'git'
 git '/root/backpack' do
   action :sync
   repository "https://github.com/PastaMasta/backpack.git"

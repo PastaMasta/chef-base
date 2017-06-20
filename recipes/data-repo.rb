@@ -20,6 +20,7 @@ end
 # Setup automount from master, if there is one.
 return unless node['master']
 
+package 'nfs-utils'
 package 'autofs'
 service 'autofs' do
   action [ :enable, :start ]
