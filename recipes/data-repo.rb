@@ -36,3 +36,9 @@ template '/etc/auto.data' do
   source 'etc/auto.data'
   notifies :restart, 'service[autofs]', :delayed
 end
+
+execute 'sebool use_nfs_home_dirs' do
+  command 'setsebool -P use_nfs_home_dirs on'
+  not_if 'getsebool use_nfs_home_dirs | grep -q on'
+  only_if 'getenforce | grep -q -E "Enforcing|Permissive"'
+end
