@@ -17,8 +17,9 @@ node['data']['layout'].each do |dir|
 
 end
 
-# Setup automount from master, if there is one.
+# Setup automount from master, if there is one - but not if we are the master
 return unless node['master']
+return if node['recipes'].include?('chef-master')
 
 package 'nfs-utils'
 package 'autofs'
