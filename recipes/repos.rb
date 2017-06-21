@@ -15,7 +15,7 @@ when /centos [6-7]/
     file '/etc/yum.repos.d/' + repo do
       action :delete
     end
-  end
+  end unless node['master'].nil?
 
   # Setup local mirrors
   template '/etc/yum.repos.d/Local-CentOS.repo' do
