@@ -7,7 +7,10 @@
 #
 
 # Create common data structure
-node['data']['layout'].each do |dir|
+layout_dirs = node['data']['layout']
+layout_dirs += [] if node['recipes'].include?('chef-base-dev::kvm')
+
+layout_dirs.each do |dir|
 
   directory = File.join(node['data']['root'],dir)
   directory directory do
@@ -44,3 +47,16 @@ execute 'sebool use_nfs_home_dirs' do
   not_if 'getsebool use_nfs_home_dirs | grep -q on'
   only_if 'getenforce | grep -q -E "Enforcing|Permissive"'
 end
+
+# KVM automounts
+replace_or_add 'auto.master' do
+  path '/etc/auto.master'
+  pattern '/- /etc/auto.virt'
+  line '/- /etc/auto.virt'
+  notifies :restart, 'service[autofs]', :delayed
+end if node['recipes'].include?('chef-base-dev::kvm')
+
+template '/etc/auto.virt' do
+  source 'etc/auto.virt'
+  notifies :restart, 'service[autofs]', :delayed
+end if node['recipes'].include?('chef-base-dev::kvm')
