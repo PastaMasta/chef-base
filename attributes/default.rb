@@ -15,8 +15,13 @@ default['data']['layout'] = [
   'backup'
 ]
 
+# Poor mans AD
+default['base']['groups'] = {
+  'docs' => { 'gid'=>1003,'members'=>'sbt' }
+}
 default['base']['users'] = {
-  'sbt' => { 'uid'=>1000,'home'=>'/data/users/sbt' }
+  'sbt' => { 'uid'=>1000,'home'=>'/data/users/sbt','shell'=>'/bin/bash' },
+  'repo' => { 'uid'=>1002,'home'=>'/data/repo','shell'=>'/sbin/nologin' }
 }
 
 # KVM

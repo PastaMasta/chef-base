@@ -1,10 +1,11 @@
 #
 # Author:: PastaMasta (<pasta.masta2902@gmail.com>)
 # Cookbook Name:: chef-base
-# Recipe:: misc
+# Recipe:: users
 #
 # Copyright 2017, PastaMasta
 #
+# Poor mans LDAP
 
 # Add users
 node['base']['users'].each do |user,attr|
@@ -12,6 +13,16 @@ node['base']['users'].each do |user,attr|
     action :create
     uid attr['uid']
     home attr['home']
+    shell attr['shell']
     manage_home false
+  end
+end
+
+# Add groups
+node['base']['groups'].each do |group,attr|
+  group group do
+    action :create
+    gid attr['gid']
+    members attr['members']
   end
 end
