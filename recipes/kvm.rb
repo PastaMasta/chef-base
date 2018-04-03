@@ -14,12 +14,7 @@ packages = [
   'bridge-utils',
   'virt-manager'
 ]
-
-packages.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
+package packages
 
 service 'libvirtd' do
   action [ :enable, :start]
