@@ -1,7 +1,7 @@
 #
 # Author:: PastaMasta (<pasta.masta2902@gmail.com>)
 # Cookbook Name:: chef-base
-# Recipe:: data-repo
+# Recipe:: data-tree
 #
 # Copyright 2017, PastaMasta
 #
