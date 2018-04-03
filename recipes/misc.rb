@@ -32,16 +32,3 @@ when /centos 7/
     action ['enable','start']
   end
 end
-
-# Clone down my dotfies
-package 'git'
-git '/root/backpack' do
-  action :sync
-  repository "https://github.com/PastaMasta/backpack.git"
-  notifies :run, 'execute[Setup backpack]', :immediately
-end
-
-execute 'Setup backpack' do
-  action :nothing
-  command '/root/backpack/setup.sh'
-end
