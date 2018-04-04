@@ -15,6 +15,10 @@ default['data']['layout'] = [
   'backup'
 ]
 
+# Poor mans AD
+default['base']['groups'] = {}
+default['base']['users'] = {}
+
 # KVM
 default['kvm']['pools'] = %w(
   central
