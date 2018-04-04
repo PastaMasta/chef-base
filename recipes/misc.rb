@@ -15,9 +15,15 @@ packages = %w(
   vim
   wget
   curl
+  bash-completion
+  tree
 )
-
-package packages
+packages.each do |package|
+  package package do
+    action :install
+    ignore_failure true
+  end
+end
 
 # Make sure we have some clocksync
 case "#{node['platform']} #{node['platform_version']}"
