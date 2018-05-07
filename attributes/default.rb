@@ -15,6 +15,9 @@ default['data']['layout'] = [
   'backup'
 ]
 
+# Use software repos from local fileservers
+default['base']['local_repos'] = false
+
 # Poor mans AD
 default['base']['groups'] = {}
 default['base']['users'] = {}
