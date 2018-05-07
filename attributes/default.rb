@@ -32,17 +32,3 @@ default['base']['packages'] = %w(
   bash-completion
   tree
 )
-
-# KVM
-default['kvm']['pools'] = %w(
-  central
-  isos
-  local
-  local_big
-  local_fast
-)
-default['kvm']['dirs'] = %w(
-  virt
-  virt/isos
-  virt/central
-)
