@@ -33,4 +33,5 @@ default['base']['packages'] = %w(
   tree
   nfs-utils
   autofs
+  bind-utils
 )
