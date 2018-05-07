@@ -24,8 +24,6 @@ end
 return unless node['master']
 return if node['recipes'].include?('chef-master')
 
-package 'nfs-utils'
-package 'autofs'
 service 'autofs' do
   action [ :enable, :start ]
 end

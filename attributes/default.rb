@@ -31,4 +31,6 @@ default['base']['packages'] = %w(
   curl
   bash-completion
   tree
+  nfs-utils
+  autofs
 )
