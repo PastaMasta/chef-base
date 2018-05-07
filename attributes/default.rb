@@ -19,6 +19,20 @@ default['data']['layout'] = [
 default['base']['groups'] = {}
 default['base']['users'] = {}
 
+# Misc packages
+default['base']['pre_packages'] = %w(
+  epel-release
+)
+default['base']['packages'] = %w(
+  git
+  htop
+  vim
+  wget
+  curl
+  bash-completion
+  tree
+)
+
 # KVM
 default['kvm']['pools'] = %w(
   central
