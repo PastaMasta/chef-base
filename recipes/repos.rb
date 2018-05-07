@@ -10,6 +10,8 @@
 case "#{node['platform']} #{node['platform_version']}"
 when /centos [6-7]/
 
+  package 'epel-release'
+
   # Remove system defaults
   Dir.entries('/etc/yum.repos.d').select {|a|a.match(/^CentOS.*\.repo/)}.each do |repo|
     file '/etc/yum.repos.d/' + repo do

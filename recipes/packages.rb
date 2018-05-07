@@ -9,11 +9,6 @@
 #
 # Install misc packages
 #
-
-package node['base']['pre_packages'] do
-  action :install
-end
-
 package node['base']['packages'] do
   action :install
 end

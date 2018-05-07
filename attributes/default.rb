@@ -20,9 +20,6 @@ default['base']['groups'] = {}
 default['base']['users'] = {}
 
 # Misc packages
-default['base']['pre_packages'] = %w(
-  epel-release
-)
 default['base']['packages'] = %w(
   git
   htop
