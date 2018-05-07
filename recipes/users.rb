@@ -22,6 +22,7 @@ end
 node['base']['groups'].each do |group,attr|
   group group do
     action :create
+    append true
     gid attr['gid']
     members attr['members']
   end
