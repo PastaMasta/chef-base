@@ -15,7 +15,8 @@ recipes = [
   cookbook_name + '::packages',
   cookbook_name + '::data-tree',
   cookbook_name + '::users',
-  cookbook_name + '::misc'
+  cookbook_name + '::misc',
+  cookbook_name + '::firewall'
 ]
 
 include_recipe(recipes)
