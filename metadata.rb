@@ -10,3 +10,4 @@ supports 'centos','~>6.0'
 supports 'centos','~>7.0'
 
 depends 'line'
+depends 'chef-client'

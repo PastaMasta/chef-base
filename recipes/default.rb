@@ -16,7 +16,10 @@ recipes = [
   cookbook_name + '::data-tree',
   cookbook_name + '::users',
   cookbook_name + '::misc',
-  cookbook_name + '::firewall'
+  cookbook_name + '::firewall',
+  'chef-client::config',
+  'chef-client::delete_validation',
+  'chef-client'
 ]
 
 include_recipe(recipes)
