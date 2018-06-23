@@ -8,7 +8,7 @@
 
 # Create common data structure
 layout_dirs = node['data']['layout']
-layout_dirs += [] if node['recipes'].include?('chef-base-dev::kvm')
+layout_dirs += node['kvm']['dirs'] if node['recipes'].include?('chef-base-dev::kvm')
 
 layout_dirs.each do |dir|
 
