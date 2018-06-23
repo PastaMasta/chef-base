@@ -15,6 +15,7 @@ when /centos [6-7]/
   if node['base']['local_repos']
     # Remove system defaults
     Dir.entries('/etc/yum.repos.d').select {|a|a.match(/^CentOS.*\.repo/)}.each do |repo|
+      Chef::Log.info("Removing repo: #{repo}")
       file '/etc/yum.repos.d/' + repo do
 	action :delete
       end

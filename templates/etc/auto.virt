@@ -1,2 +1,4 @@
+# This file is managed by Chef, changes will be lost!
+# Cookbook: <%=cookbook_name%>
 <%= "/data/virt/central -fstype=nfs,rw,nosuid,soft,rw #{node['master']}:/data/virt/central" %>
 <%= "/data/virt/isos -fstype=nfs,r0,nosuid,soft,ro #{node['master']}:/data/virt/isos" %>
