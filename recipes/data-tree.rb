@@ -8,7 +8,7 @@
 
 # Create common data structure
 layout_dirs = node['data']['layout']
-layout_dirs += node['kvm']['dirs'] if node['recipes'].include?('chef-base-dev::kvm')
+layout_dirs += node['kvm']['dirs'] if node['recipes'].include?('chef-base::kvm')
 
 layout_dirs.each do |dir|
 
@@ -52,9 +52,9 @@ replace_or_add 'auto.master' do
   pattern '/- /etc/auto.virt'
   line '/- /etc/auto.virt'
   notifies :restart, 'service[autofs]', :delayed
-end if node['recipes'].include?('chef-base-dev::kvm')
+end if node['recipes'].include?('chef-base::kvm')
 
 template '/etc/auto.virt' do
   source 'etc/auto.virt'
   notifies :restart, 'service[autofs]', :delayed
-end if node['recipes'].include?('chef-base-dev::kvm')
+end if node['recipes'].include?('chef-base::kvm')
